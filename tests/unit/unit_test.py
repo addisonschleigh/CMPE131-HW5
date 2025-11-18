@@ -23,14 +23,14 @@ def test_format_currency():
 
 @pytest.mark.parametrize("price, percent, expected", [
     (10,0,10),
-    (20,0.95,1)
+    (20,95,1)
 ])
 def test_valid_apply_discount(price, percent, expected):
     assert apply_discount(price,percent) == expected
 
 def test_invalid_apply_discount():
     with pytest.raises(ValueError):
-        apply_discount(10,-0.1)
+        apply_discount(10,-10)
 
 def test_default_add_tax():
     assert add_tax(10) == 10.700000000000001 # add_tax calculated weirdly with default
