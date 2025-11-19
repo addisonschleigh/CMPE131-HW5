@@ -11,7 +11,7 @@ def test_order_integration(tmp_path):
 
     output_text = (tmp_path / "receipt.txt").read_text(encoding="utf-8")
     assert "widget: $10.00" in output_text
-    assert "TOTAL:" in output_text
+    assert "TOTAL: $15.35" in output_text
 
 def test_invalid_order_integration(tmp_path):
     input_file = tmp_path / "order.csv"
